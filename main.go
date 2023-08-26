@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"net/url"
 	"os"
+	"time"
 	"strings"
 
 	"github.com/go-chi/chi"
@@ -95,6 +96,7 @@ func main() {
 	srv := &http.Server{
 		Addr:    ":" + port,
 		Handler: router,
+		ReadHeaderTimeout: time.Second * 10,
 	}
 
 	log.Printf("Serving on port: %s\n", port)
