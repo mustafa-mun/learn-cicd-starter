@@ -9,6 +9,9 @@ jobs:
     name: deploy
     runs-on: ubuntu-latest
 
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      
     steps:
       - name: Set up Go
         uses: actions/setup-go@v4
